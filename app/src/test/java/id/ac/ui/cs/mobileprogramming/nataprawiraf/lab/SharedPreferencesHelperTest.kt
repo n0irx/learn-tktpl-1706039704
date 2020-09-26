@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package id.ac.ui.cs.mobileprogramming.nataprawiraf.lab2
+package id.ac.ui.cs.mobileprogramming.nataprawiraf.lab
 
 import android.content.SharedPreferences
 import org.junit.Assert.assertEquals

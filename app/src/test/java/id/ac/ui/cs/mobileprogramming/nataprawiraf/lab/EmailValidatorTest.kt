@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package id.ac.ui.cs.mobileprogramming.nataprawiraf.lab2
+package id.ac.ui.cs.mobileprogramming.nataprawiraf.lab
 
-import id.ac.ui.cs.mobileprogramming.nataprawiraf.lab2.EmailValidator
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
