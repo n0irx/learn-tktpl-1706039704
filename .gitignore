@@ -12,8 +12,8 @@
 /captures
 .externalNativeBuild
 .cxx
-./idea/**/*
-idea/**/*
+./.idea/**/*
+.idea/**/*
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin,git,linux,windows,java
