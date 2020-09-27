@@ -39,6 +39,7 @@ class SharedPreferencesHelperTest {
 
     private val TEST_NAME = "Test name"
     private val TEST_EMAIL = "test@email.com"
+    private val TEST_PHONE_NUMBER = "08123456789"
     private val TEST_DATE_OF_BIRTH = Calendar.getInstance().apply { set(1980, 1, 1) }
 
     private lateinit var sharedPreferenceEntry: SharedPreferenceEntry
@@ -52,7 +53,7 @@ class SharedPreferencesHelperTest {
 
     @Before fun initMocks() {
         // Create SharedPreferenceEntry to persist.
-        sharedPreferenceEntry = SharedPreferenceEntry(TEST_NAME, TEST_DATE_OF_BIRTH, TEST_EMAIL)
+        sharedPreferenceEntry = SharedPreferenceEntry(TEST_NAME, TEST_DATE_OF_BIRTH, TEST_EMAIL, TEST_PHONE_NUMBER)
 
         // Create a mocked SharedPreferences.
         mockSharedPreferencesHelper = createMockSharedPreference()

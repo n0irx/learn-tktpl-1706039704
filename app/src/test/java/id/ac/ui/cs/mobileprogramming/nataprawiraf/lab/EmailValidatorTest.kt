@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2017 The Android Open Source Project
  *
@@ -25,31 +26,31 @@ import org.junit.Test
  */
 class EmailValidatorTest {
 
-    @Test fun emailValidator_CorrectEmailSimple_ReturnsTrue() {
+    @Test fun `email validator correct email simple returns true`() {
         assertTrue(EmailValidator.isValidEmail("name@email.com"))
     }
 
-    @Test fun emailValidator_CorrectEmailSubDomain_ReturnsTrue() {
+    @Test fun `email validator correct email subDomain returns true`() {
         assertTrue(EmailValidator.isValidEmail("name@email.co.id"))
     }
 
-    @Test fun emailValidator_InvalidEmailNoTld_ReturnsFalse() {
+    @Test fun `email validator invalid email no tld returns false`() {
         assertFalse(EmailValidator.isValidEmail("name@email"))
     }
 
-    @Test fun emailValidator_InvalidEmailDoubleDot_ReturnsFalse() {
+    @Test fun `email validator invalid email double dot returns false`() {
         assertFalse(EmailValidator.isValidEmail("name@email..com"))
     }
 
-    @Test fun emailValidator_InvalidEmailNoUsername_ReturnsFalse() {
+    @Test fun `email validator invalid email no username returns false`() {
         assertFalse(EmailValidator.isValidEmail("@email.com"))
     }
 
-    @Test fun emailValidator_EmptyString_ReturnsFalse() {
+    @Test fun `email validator empty string returns false`() {
         assertFalse(EmailValidator.isValidEmail(""))
     }
 
-    @Test fun emailValidator_NullEmail_ReturnsFalse() {
+    @Test fun `email validator null email returns false`() {
         assertFalse(EmailValidator.isValidEmail(null))
     }
 
