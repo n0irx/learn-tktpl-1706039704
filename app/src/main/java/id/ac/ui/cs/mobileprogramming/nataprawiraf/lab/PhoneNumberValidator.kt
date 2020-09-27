@@ -36,7 +36,6 @@ class PhoneNumberValidator : TextWatcher {
          * @return `true`  if the input is a valid phone_number, `false` otherwise.
          */
         fun isValidPhoneNumber(phone_number: CharSequence?): Boolean {
-            TODO("Implement Phone Number Validation")
             return phone_number != null && PHONE_NUMBER_PATTERN.matcher(phone_number).matches()
         }
     }
