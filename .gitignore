@@ -15,6 +15,9 @@
 ./.idea/**/*
 .idea/**/*
 
+app/debug/**/*
+app/release/**/*
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin,git,linux,windows,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,kotlin,git,linux,windows,java
