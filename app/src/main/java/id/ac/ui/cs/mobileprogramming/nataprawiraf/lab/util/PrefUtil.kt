@@ -1,27 +1,27 @@
 package id.ac.ui.cs.mobileprogramming.nataprawiraf.lab.util
 
 import android.content.Context
-import android.os.health.TimerStat
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import id.ac.ui.cs.mobileprogramming.nataprawiraf.lab.MainActivity
 
 class PrefUtil {
 
     companion object {
-        fun getTimerLength(context: Context): Int{
+        fun getTimerLength(context: Context): Int {
             // placeholder
             return 1
         }
 
-        private const val PREVIOUS_TIMER_LENGTH_SECONDS_ID = "id.ac.ui.cs.mobileprogramming.nataprawiraf.previous_timer_length"
+        private const val PREVIOUS_TIMER_LENGTH_SECONDS_ID =
+            "id.ac.ui.cs.mobileprogramming.nataprawiraf.previous_timer_length"
 
         fun getPreviousTimerLengthSeconds(context: Context): Long {
-           val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
             return preferences.getLong(PREVIOUS_TIMER_LENGTH_SECONDS_ID, 0)
         }
 
         fun setPreviousTimerLengthSeconds(seconds: Long, context: Context) {
-            val prefEditor =  PreferenceManager.getDefaultSharedPreferences(
+            val prefEditor = PreferenceManager.getDefaultSharedPreferences(
                 context
             ).edit()
             prefEditor.putLong(PREVIOUS_TIMER_LENGTH_SECONDS_ID, seconds)
@@ -29,7 +29,8 @@ class PrefUtil {
         }
 
 
-        private const val SECONDS_REMAINING_ID = "id.ac.ui.cs.mobileprogramming.nataprawiraf.previous_timer_length"
+        private const val SECONDS_REMAINING_ID =
+            "id.ac.ui.cs.mobileprogramming.nataprawiraf.seconds_remaining"
 
         fun getSecondsRemaining(context: Context): Long {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -37,7 +38,7 @@ class PrefUtil {
         }
 
         fun setSecondsRemaining(seconds: Long, context: Context) {
-            val prefEditor =  PreferenceManager.getDefaultSharedPreferences(
+            val prefEditor = PreferenceManager.getDefaultSharedPreferences(
                 context
             ).edit()
             prefEditor.putLong(SECONDS_REMAINING_ID, seconds)
@@ -54,7 +55,7 @@ class PrefUtil {
         }
 
         fun setTimerState(state: MainActivity.TimerState, context: Context) {
-            val prefEditor =  PreferenceManager.getDefaultSharedPreferences(
+            val prefEditor = PreferenceManager.getDefaultSharedPreferences(
                 context
             ).edit()
             val ordinal = state.ordinal
@@ -62,5 +63,21 @@ class PrefUtil {
             prefEditor.apply()
         }
 
+
+        private const val ALARM_SET_TIME_ID =
+            "id.ac.ui.cs.mobileprogramming.nataprawiraf.background_time"
+
+        fun getAlarmSetTime(context: Context): Long {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            return preferences.getLong(ALARM_SET_TIME_ID, 0)
+        }
+
+        fun setAlarmSetTime(time: Long, context: Context) {
+            val prefEditor = PreferenceManager.getDefaultSharedPreferences(
+                context
+            ).edit()
+            prefEditor.putLong(ALARM_SET_TIME_ID, time)
+            prefEditor.apply()
+        }
     }
 }
