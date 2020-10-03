@@ -62,11 +62,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setIcon(R.drawable.ic_timer)
-        supportActionBar?.title = "Timer"
+        supportActionBar?.title = " Timer"
 
         fab_start.setOnClickListener {
             startTimer()
             timerState = TimerState.Running
+            updateButtons()
         }
 
         fab_pause.setOnClickListener {
@@ -76,8 +77,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab_stop.setOnClickListener {
-            timer.cancel()
-            onTimerFinished()
+            if (this::timer.isInitialized) {
+                timer.cancel()
+                onTimerFinished()
+            }
         }
 
     }
@@ -86,6 +89,8 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         initTimer()
+
+        // removing background timer on resume
         removeAlarm(this)
     }
 
@@ -95,9 +100,7 @@ class MainActivity : AppCompatActivity() {
 
         if(timerState == TimerState.Running) {
             timer.cancel()
-            val wakeUpTime = setAlarm(this, nowSeconds, secondsRemaining)
-        }
-        else if(timerState == TimerState.Paused) {
+            setAlarm(this, nowSeconds, secondsRemaining)
         }
 
         PrefUtil.setPreviousTimerLengthSeconds(timerLengthSeconds, this)
@@ -119,6 +122,7 @@ class MainActivity : AppCompatActivity() {
         else
             timerLengthSeconds
 
+        // init timer, considering background timer seconds
         val alarmSetTime = PrefUtil.getAlarmSetTime(this)
         if(alarmSetTime > 0) {
             secondsRemaining -= nowSeconds - alarmSetTime
