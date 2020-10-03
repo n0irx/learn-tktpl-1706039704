@@ -2,23 +2,23 @@ package id.ac.ui.cs.mobileprogramming.nataprawiraf.lab
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
+import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.getSystemService
+import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.nataprawiraf.lab.util.PrefUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_first.*
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -223,16 +223,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
-            return
-        }
-
-        this.doubleBackToExitPressedOnce = true
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
-
-        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+        AlertDialog.Builder(this)
+            .setMessage("Are you sure you want to exit?")
+            .setCancelable(false)
+            .setPositiveButton("Yes",
+                DialogInterface.OnClickListener { _, _ -> this@MainActivity.finish() })
+            .setNegativeButton("No", null)
+            .show()
     }
 }
