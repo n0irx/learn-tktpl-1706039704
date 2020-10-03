@@ -96,12 +96,9 @@ class MainActivity : AppCompatActivity() {
 
         if(timerState == TimerState.Running) {
             timer.cancel()
-            // TODO("start background timer")
             val wakeUpTime = setAlarm(this, nowSeconds, secondsRemaining)
-            // TODO show notif ")
         }
         else if(timerState == TimerState.Paused) {
-            // TODO("start background timer and show notif ")
         }
 
         PrefUtil.setPreviousTimerLengthSeconds(timerLengthSeconds, this)
