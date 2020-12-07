@@ -6,12 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.navigation.fragment.findNavController
+import androidx.core.view.OneShotPreDrawListener.add
+import kotlinx.android.synthetic.main.fragment_first.*
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
+
+    init {
+        System.loadLibrary("native-lib")
+    }
+
+    external fun add(a: Int, b: Int): Int
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +33,10 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            val numberOne: Int = numberOne.text.toString().toInt()
+            val numberTwo: Int = numberTwo.text.toString().toInt()
+            val sum: Int  = add(numberOne, numberTwo)
+            textview_first.setText("Result: $sum")
         }
     }
 }
