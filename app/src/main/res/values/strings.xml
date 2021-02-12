@@ -1,12 +1,30 @@
-<resources>
-    <string name="app_name">helloworld</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2017 The Android Open Source Project
 
-    <string name="hello_first_fragment">Hello World</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<resources>
+    <string name="app_name">iProfile</string>
+    <string name="name_label">Your name:</string>
+    <string name="dob_label">Your date of birth:</string>
+    <string name="email_label">Your Email address:</string>
+    <string name="phone_number_label">Your Phone number:</string>
+    <string name="settings_title">Profile</string>
+    <string name="save">Save</string>
+    <string name="revert">Revert</string>
+    <string name="name_hint">Enter your name</string>
+    <string name="email_hint">Enter your Email</string>
+    <string name="phone_number_hint">Enter your Phone Number</string>
 </resources>
